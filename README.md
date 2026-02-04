@@ -5,8 +5,7 @@
 A spooky-themed memory card matching game with timer and flip counter.
 
 ## 🚀 Live Demo
-[Play the Game](https://quisly.github.io/Card-Matching-Game/)  
-*(Add this after enabling GitHub Pages)*
+[Play the Game](https://quisly.github.io/Card-Matching-Game/)
 
 ## 🎯 Features
 - Countdown timer starting on first flip
