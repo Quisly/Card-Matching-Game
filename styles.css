@@ -1,0 +1,206 @@
+@font-face {
+  font-family: 'Game-Font';
+  src: url('assets/Carousel.ttf') format('truetype');
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-height: 100vh;
+}
+
+body {
+  position: relative;
+  margin: 0;
+  text-align: center;
+  font-family: 'Game-Font', Arial;
+  color: rgb(230, 52, 52);
+  background: radial-gradient(#cf0a0a, #390101);
+}
+
+#game-title {
+  margin: 0;
+  font-size: 70px;
+  text-shadow: 0 0 0 rgb(223, 239, 43);
+}
+
+#game-container {
+  display: grid;
+  grid-template-columns: repeat(6, auto);
+  grid-gap: 10px;
+  justify-content: center;
+}
+
+#game-info {
+  display: flex;
+  justify-content: space-between;
+  font-size: 40px;
+  grid-column: 1 / -1;
+  color: rgb(255, 115, 115);
+  text-shadow: 0 0 4px rgb(242, 17, 17);
+}
+
+.card {
+  position: relative;
+  width: 125px;
+  height: 175px;
+  cursor: pointer;
+  perspective: 700px;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  transition: transform 0.2s;
+}
+
+.card-face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  border-radius: 12px;
+  border: 1px solid rgb(165, 5, 5);
+  backface-visibility: hidden;
+  box-shadow: 0 0 4px rgb(223, 239, 43);
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.card-front {
+  border: 3px solid rgb(254, 4, 4);
+  background-color: #390101;
+  transform: rotateY(180deg);
+  font-size: 50px;
+  color: rgb(255, 0, 0);
+  text-shadow: 
+    3px 3px 0 #c1b8b8,
+    -3px 3px 0 #908686,
+    3px -3px 0 #c0b9b9,
+    -3px -3px 0 #ebdcdc,
+    0 3px 0 #e0d6d6,
+    3px 0 0 #f4ebeb,
+    -3px 0 0 #ece2e2,
+    0 -3px 0 #efe8e8;
+  box-shadow:inset 0 0 40px rgba(249, 1, 1, 0.329);
+}
+
+.card-back {
+  background: radial-gradient(rgb(238, 135, 135), rgb(243, 171, 129));
+  transform: rotateY(0);
+}
+
+.card.flipped .card-back {
+  transform: rotateY(180deg);
+}
+
+.card.flipped .card-front {
+  transform: rotateY(0deg);
+}
+
+.card-back:hover .spider {
+  transform: translateY(-20px);
+}
+
+.card-back:hover .cob-web {
+  width: 60px;
+  height: 60px;
+}
+
+.spider {
+  height: 160px;
+  align-self: flex-start;
+  transform: translateY(-30px);
+  transition: transform 0.12s ease;
+}
+
+.cob-web {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  transition: width 0.12s ease-in-out,
+              height 0.12s ease-in-out;
+}
+
+.cobweb-top-left {
+  top: 0;
+  left: -2px;
+}
+
+.cobweb-top-right {
+  transform: rotate(90deg);
+  top: -2px;
+  right: 0;
+}
+
+.cobweb-bottom-left {
+  transform: rotate(270deg);
+  left: 0;
+  bottom: -2px;
+}
+
+.cobweb-bottom-right {
+  transform: rotate(180deg);
+  right: -2px;
+  bottom: 0;
+}
+
+#blurr {
+  display: none;
+  position: absolute;
+  top: 28%;
+  bottom: 28%;
+  left: 20%;
+  right: 20%;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 14px;
+}
+
+#victory-text {
+  display: none;
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 40px;
+  color: #ff0000;
+  text-shadow: 0 0 30px black;
+}
+
+#game-over-text {
+  display: none;
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 40px;
+  color: #ff0000;
+  text-shadow: 0 0 30px black;
+}
+
+#restart-btn {
+  display: none;
+  position: absolute;
+  z-index: 5;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #be0c0c;
+  color: rgb(232, 232, 232);
+  border: none;
+  border-radius: 5px;
+  padding: 20px 40px;
+  font-family: 'Game-Font';
+  font-size: 40px;
+  box-shadow: inset 0 0 20px rgb(237, 178, 178);
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+  &:hover {
+    background-color: #cf0a0a;
+  }
+}
